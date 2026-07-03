@@ -1,5 +1,4 @@
 class ApiController < ApplicationController
-  protect_from_forgery with: :null_session
   before_action :underscore_params!
 
   private
