@@ -48,3 +48,10 @@ group :development, :test do
   # Omakase Ruby styling [https://github.com/rails/rubocop-rails-omakase/]
   gem "rubocop-rails-omakase", require: false
 end
+
+gem "jwt", "~> 3.2"
+gem "bcrypt", "~> 3.1"
+gem "rspec-rails", "~> 8.0"
+gem "factory_bot_rails", "~> 6.5"
+
+gem "rack-cors", "~> 3.0"
