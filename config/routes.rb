@@ -7,4 +7,10 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   # root "posts#index"
+  namespace :api, defaults: { format: :json } do
+    namespace :v1 do
+      post "users/signup", to: "users#create"
+      post "auth/signin", to: "users#login"
+    end
+  end
 end
