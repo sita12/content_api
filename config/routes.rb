@@ -11,6 +11,7 @@ Rails.application.routes.draw do
     namespace :v1 do
       post "users/signup", to: "users#create"
       post "auth/signin", to: "users#login"
+      resources :contents
     end
   end
 end
