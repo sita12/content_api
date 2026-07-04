@@ -1,0 +1,25 @@
+version: '3.8'
+services:
+  db:
+    image: postgres:16
+    volumes:
+      - ./tmp/db:/var/lib/postgresql/data
+    env_file: .env   
+  web:
+    build: .
+    image: content_api
+    command: bash -c "bundle exec rails s -p 3000 -b '0.0.0.0'"
+    volumes:
+      - .:/app
+      - bundle:/usr/local/bundle
+      - rails_cache:/app/tmp/cache
+    ports:
+      - "3000:3000"
+    depends_on:
+      - db
+    env_file: .env  
+    environment:
+      - ENABLE_BOOTSNAP=true
+volumes:
+  bundle:
+  rails_cache:
