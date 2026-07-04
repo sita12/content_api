@@ -26,7 +26,3 @@ development:
 test:
   <<: *default
   database: <%= Rails.application.credentials.dig(:database, :test, :name) %>
-
-production:
-  <<: *default
-  url: <%= ENV.fetch("DATABASE_URL") %>
